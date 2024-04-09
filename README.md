@@ -29,7 +29,7 @@ python main_latent.py --gray <if set, train over grayscale data> --cfg-path <pat
 If you are using your own custom dataset, make sure to add your config file pointing to this dataset to the config folder. See example in "config/dmr_cfg.yaml".
 
 ### Decoder Training
-For our decoder we use a basic UNet model implemented under the "models" folder. You can add other architectures there if needed.
+For our decoder we use a basic UNet model implemented under the "model" folder. You can add other architectures there if needed.
 In our experiments in the paper we consider two downstream tasks - fully supervised tumor classification and few-shot region semantic segmentation.
 For each task we compare between 4 cases using an encoder trained on heatmap/grayscale data, and for each of those using a decoder trained on heatmap/grayscale data.
 To train for the classification task:
