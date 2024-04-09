@@ -24,7 +24,7 @@ The encoder is trained in an unsupervised fashion, we follow the CUTS contrastiv
 In our experiments described in the paper we compare between training the encoder over grayscale thermographies and RGB-heatmap thermographies. The choice between data types is controlled by the --gray flag.
 To train the encoder you must run the main_latent.py script as follows:
 <pre>
-python main_latent.py --gray <if set, train over grayscale data> --cfg-path <path to folder containing config yaml files. ./config by default>
+python main_latent.py --gray &lt;If if set, train over grayscale data &gt; --cfg-path &lt;If path to folder containing config yaml files. ./config by default&gt;
 </pre>
 If you are using your own custom dataset, make sure to add your config file pointing to this dataset to the config folder. See example in "config/dmr_cfg.yaml".
 
@@ -34,13 +34,14 @@ In our experiments in the paper we consider two downstream tasks - fully supervi
 For each task we compare between 4 cases using an encoder trained on heatmap/grayscale data, and for each of those using a decoder trained on heatmap/grayscale data.
 To train for the classification task:
 <pre>
-  python main_binary.py --gray_encoder <If set, use encoder trained on grayscale data, else heatmap data> --gray_decoder <if set, use decoder trained on grayscale data, else heatmap data> --cfg-path <path to config folder, "./config" by default> --encoder-ckpt-root <path to folder containing the folders dmr_runs and dmr_runs_gray, containing the respective trained encoder checkpoints>
+  python main_binary.py --gray_encoder &lt;If set, use encoder trained on grayscale data, else heatmap data&gt; --gray_decoder &lt;if set, use decoder trained on grayscale data, else heatmap data&gt; --cfg-path &lt;path to config folder, "./config" by default&gt; --encoder-ckpt-root &lt;path to folder containing the folders dmr_runs and dmr_runs_gray, containing the respective trained encoder checkpoints&gt;
 </pre>
 
 To train the segmentation task:
 <pre>
-  python main_seg.py --gray_encoder <If set, use encoder trained on grayscale data, else heatmap data> --gray_decoder <if set, use decoder trained on grayscale data, else heatmap data> --cfg-path <path to config folder, "./config" by default> --encoder-ckpt-root <path to folder containing the folders dmr_runs and dmr_runs_gray, containing the respective trained encoder checkpoints>
+  python main_seg.py ...
 </pre>
+The arguments are the same as for the main_binary.py script above.
 Note that to train the segmentation task, you'll need some segmentations labels under the path "data/DMR/". Our own labels are under this path in this repo ("52_instances_default.json").
 
 ## Acknowledgements
