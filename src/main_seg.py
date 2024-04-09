@@ -112,6 +112,8 @@ def run(config,gray_encoder, gray_decoder, encoder_ckpt_root):
             x_train = x_train.type(torch.FloatTensor).to(device)
             if gray_encoder and not gray_decoder:
                 x_train = x_train.reshape(B * 3, 1, IM_SIZE[0],IM_SIZE[1]) #encoder expects 1 channel but we have 3, so divert to batch dimension
+            elif gray_decoder != gray_encoder:
+                x_train = x_train.repeat(1, 3, 1, 1) #complement to previous case - we get 1 channel data but encoder expects 3
             y_train = y_train if gray_decoder else torch.nn.AvgPool2d(4)(y_train) #downsample the labels if we use heatmap data, since our labels are only on grayscale
             y_train = y_train.type(torch.float32).to(device).permute(0, 2, 3, 1).reshape(-1, NUM_CLASSES)
             with torch.no_grad():
@@ -160,6 +162,9 @@ def run(config,gray_encoder, gray_decoder, encoder_ckpt_root):
                 x_val = x_val.type(torch.FloatTensor).to(device)
                 if gray_encoder and not gray_decoder:
                     x_val = x_val.reshape(B * 3, 1, IM_SIZE[0],IM_SIZE[1])  # encoder expects 1 channel but we have 3, so divert to batch dimension
+                elif gray_decoder != gray_encoder:
+                    x_val = x_val.repeat(1, 3, 1,
+                                             1)  # complement to previous case - we get 1 channel data but encoder expects 3
                 y_val = y_val.type(torch.float32).to(device).permute(0, 2, 3, 1).reshape(-1, NUM_CLASSES)
 
                 z, _, _, _, _ = encoder(
