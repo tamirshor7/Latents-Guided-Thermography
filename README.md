@@ -1,7 +1,7 @@
 # Latents-Guided-Thermography
 #### Tamir Shor (tamir.shor@campus.technion.ac.il), Chaim Baskin, Alex Bronstein
-This repo contains official Pytorch implementation for the algorithm proposed in "Leveraging Latents for Efficient Thermography Classification and Segmentation".
-Our algorithm focuses on using an expressive latent space in order to perform efficient, accurate and fully automatic tumor benign/malignant classification and novel 7-region semantic segmentation. This approach replaces previous methods focused on complex feature selection pipelines or hevay, difficult to train neural architectures. Using our potent latent space, we show it suffices to train a relatively small, simple decoder network to achieve accurate results over the two downstream tasks. <\br>
+This repo contains official Pytorch implementation for the paper ["Leveraging Latents for Efficient Thermography Classification and Segmentation"](https://arxiv.org/pdf/2404.06589.pdf). </br>
+Our algorithm focuses on using an expressive latent space in order to perform efficient, accurate and fully automatic tumor benign/malignant classification and novel 7-region semantic segmentation. This approach replaces previous methods focused on complex feature selection pipelines or hevay, difficult to train neural architectures. Using our potent latent space, we show it suffices to train a relatively small, simple decoder network to achieve accurate results over the two downstream tasks. </br>
 Our classification produces SOTA results, while we are the first to solve the 7-region semantic segmentation problem (segmenting left/right breasts, left/right nipples, left/right armpits and neck).
 
 ## Set-up
