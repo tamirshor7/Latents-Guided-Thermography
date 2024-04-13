@@ -46,4 +46,14 @@ Note that to train the segmentation task, you'll need some segmentations labels 
 
 ## Acknowledgements
  - Our encoder model, as well as the encoder training script and several utility scripts used in our repo, are based on the [official CUTS implementation](https://github.com/ChenLiu-1996/CUTS).
- - We extend our gratitude to [ThermoMind](https://www.thermomind.io/) for supplying us with the segmentation annotations. 
+ - We extend our gratitude to [ThermoMind](https://www.thermomind.io/) for supplying us with the segmentation annotations.
+
+## Citation
+<pre>
+  @article{shor2024leveraging,
+  title={Leveraging Latents for Efficient Thermography Classification and Segmentation},
+  author={Shor, Tamir and Baskin, Chaim and Bronstein, Alex},
+  journal={arXiv preprint arXiv:2404.06589},
+  year={2024}
+}
+</pre>
